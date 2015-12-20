@@ -1,0 +1,35 @@
+{
+  "name": "events_system",
+  "version": "1.0.0",
+  "description": "Sistema de eventos con node express mysql y vue",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hustels/events.git"
+  },
+  "keywords": [
+    "Sistema",
+    "de",
+    "eventos",
+    "con",
+    "nodejs",
+    "express",
+    "mysql",
+    "y",
+    "vuejs"
+  ],
+  "author": "Cheikh Ndiaye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hustels/events/issues"
+  },
+  "homepage": "https://github.com/hustels/events#readme",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "mysql": "^2.10.0"
+  }
+}
