@@ -4,10 +4,34 @@
 	<meta charset="UTF-8">
 	<title>Sistema de eventos</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-	<div id="app" class="container">
+	<div id="eventApp" class="container"> <!-- Container -->
 		<h3>Sistema de eventos</h3>
-	</div>
+		<div class="row"> <!-- Row -->
+			<div class="col-md-6">
+				<form method="post" action="events/add">
+				  <div class="form-group">
+				    <label for="title">Titulo</label>
+				    <input type="text" class="form-control" id="title" name="title" placeholder="Event title">
+				  </div>
+				  <div class="form-group">
+				    <label for="description"> Descripción</label>
+				    <input type="text" class="form-control" placeholder="Event description" name="description">
+				  </div>
+				  <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<h3>Eventos recientes</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis optio soluta deserunt, ipsam eveniet, autem omnis, dolor adipisci facilis consectetur temporibus ad sapiente possimus. Unde deserunt, modi optio ipsum provident.</p>
+			</div>
+		</div> <!-- end Row -->
+	</div> <!-- end Container -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>

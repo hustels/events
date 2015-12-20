@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/hustels/events#readme",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "mysql": "^2.10.0"
