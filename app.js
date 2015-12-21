@@ -32,8 +32,18 @@ app.post('/events/add', function(req, res, next){
 		connection.query ("insert into events(title, description) values('"+req.body.title+"', '"+req.body.description+"')", function(err, rows, fiels){
 		if (err) throw err;
 	});
-	var message = 'Evento creado';
+
 	res.send({message: 'Evento creado '});
+	//res.redirect(301, 'http://localhost:3000' + message);
+	next();
+});
+app.post('/events/delete', function(req, res, next){
+		connection.query ("delete from events where id='" +req.body.id +"'", function(err, rows, fiels){
+		if (err) throw err;
+	});
+	// var message = 'Evento borrado';
+	// res.send({message: 'Evento creado '});
+	res.send({message: 'Evento borrado '});
 	//res.redirect(301, 'http://localhost:3000' + message);
 	next();
 });

@@ -4,7 +4,8 @@ new Vue({
 		title: '',
 		description: '',
 		message: '',
-		events: []
+		events: [],
+		deleted_message: ''
 	},
 	ready: function(){
 		this.fetchEvents();
@@ -12,7 +13,7 @@ new Vue({
 	methods:{
 		fetchEvents: function(){
 			this.$http.get('events', function(events , status){
-				console.log(events);
+				
 				this.events = events;
 			})
 		},
@@ -30,6 +31,15 @@ new Vue({
 			}
 			e.preventDefault();
 			
+		},
+		deleteEvent: function(id){
+			this.$http.post('events/delete',{id: id} , function(message , status){
+				$( "#deleted_message" ).addClass( "alert alert-success" );
+				this.deleted_message = message.message;
+				this.fetchEvents();
+
+			});
+		
 		}
 	}
 })

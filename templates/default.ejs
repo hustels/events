@@ -54,11 +54,13 @@
 			</div>
 			<div class="col-md-6">
 				<p id="events_title">Eventos recientes</p>
+				<p @show="deleted_message.length > 0" id="deleted_message">{{deleted_message}} </p>
 				<ul v-for="event in events">
 					<p id="title">{{ event.title}} </p>
 					<i id="calendar" class="fa fa-calendar" ></i>&nbsp;
 					{{ event.createdAt}}
-					<p id="description">{{ event.description}}</p> 
+					<p id="description">{{ event.description}}</p>
+					<button class="btn btn-danger" @click="deleteEvent(event.id)">Delete</button>
 					<hr>
 					
 				</ul>
