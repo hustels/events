@@ -8,30 +8,66 @@
 	<link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+ <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Eventos <i class="fa fa-bell"></i></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="#about">Sobre Mi</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+ 
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 	<div id="eventApp" class="container"> <!-- Container -->
-		<h3>Sistema de eventos</h3>
+		<p id="app_title">Sistema de eventos</p>
+		
 		<div class="row"> <!-- Row -->
 			<div class="col-md-6">
-				<form method="post" action="events/add">
+		
+				 <p @show="message.length > 0" id="message">{{message}} </p>
+				
+				<form method="post" action="" @submit="createEvent($event)">
 				  <div class="form-group">
 				    <label for="title">Titulo</label>
-				    <input type="text" class="form-control" id="title" name="title" placeholder="Event title">
+				    <input type="text" class="form-control" id="title" name="title" placeholder="Titulo del evento"
+				    v-model="title">
 				  </div>
 				  <div class="form-group">
 				    <label for="description"> Descripción</label>
-				    <input type="text" class="form-control" placeholder="Event description" name="description">
+				    <input type="text" class="form-control" placeholder="descripción del evento" name="description"
+				    v-model="description">
 				  </div>
 				  <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
 				</form>
 			</div>
 			<div class="col-md-6">
-				<h3>Eventos recientes</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis optio soluta deserunt, ipsam eveniet, autem omnis, dolor adipisci facilis consectetur temporibus ad sapiente possimus. Unde deserunt, modi optio ipsum provident.</p>
+				<p id="events_title">Eventos recientes</p>
+				<ul v-for="event in events">
+					<p id="title">{{ event.title}} </p>
+					<i id="calendar" class="fa fa-calendar" ></i>&nbsp;
+					{{ event.createdAt}}
+					<p id="description">{{ event.description}}</p> 
+					<hr>
+					
+				</ul>
 			</div>
 		</div> <!-- end Row -->
 	</div> <!-- end Container -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="js/app.js"></script>
 </body>
 </html>

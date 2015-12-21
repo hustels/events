@@ -20,12 +20,21 @@ connection.query('USE events');
 app.get('/', function(req, res){
 	res.render('default');
 });
-
+app.get('/events', function(req, res){
+	connection.query ('SELECT *FROM events order by createdAt desc', function(err, rows, fiels){
+		if (err) throw err;
+		res.json(rows);
+		//res.send(rows);
+	});
+	
+});
 app.post('/events/add', function(req, res, next){
 		connection.query ("insert into events(title, description) values('"+req.body.title+"', '"+req.body.description+"')", function(err, rows, fiels){
 		if (err) throw err;
 	});
-	res.send('Inserted');
+	var message = 'Evento creado';
+	res.send({message: 'Evento creado '});
+	//res.redirect(301, 'http://localhost:3000' + message);
 	next();
 });
 app.listen(3000);
