@@ -28,9 +28,13 @@
   },
   "homepage": "https://github.com/hustels/events#readme",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.2",
+    "client-sessions": "^0.7.0",
+    "csurf": "^1.8.3",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
-    "mysql": "^2.10.0"
+    "mysql": "^2.10.0",
+    "passport": "^0.3.2"
   }
 }

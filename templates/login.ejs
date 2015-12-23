@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login page </title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+	<div class="container" id='eventApp'>
+		<h3>Login</h3>
+		<% if(typeof login_error != 'undefined'){ %>
+		<p>Login error</p>
+		<%} %>
+		<div class="row">
+			<div class="col-md-6">
+				<form action="/login" method="post">
+				<input type="hidden" name="_csrf" >
+					<div>
+						<label for="username">Username</label>
+						<input type="text" name="username" class="form-control">
+					</div>
+					<div>
+						<label for="password">Password</label>
+						<input type="password" name="password" class="form-control">
+					</div>
+					<div>
+						<input type="submit" class="btn btn-success" value="Sign In">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
